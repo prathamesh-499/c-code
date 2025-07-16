@@ -3,43 +3,47 @@
 using namespace std;
 class Person{
     public:
-    
-}
-class Student{
+    string name;
+    Person(){
+        cout<<"base default"<<endl;
+    }
+    ~Person(){
+        cout<<endl<<"boom!boom!"<<endl;
+    }
+};
+class Student:public Person{
     public:
-string name;
-float cgpa;
-string* skill;
 
-    Student(string name,float cgpa,string skill){
+float cgpa;
+
+
+    Student(string name,float cgpa){
     this->name=name;
     this->cgpa=cgpa;
-    this->skill=new string;
-    *(this->skill)=skill;
+
 
     }
     ~Student(){
-        delete skill;
         cout<<"destructor bom";
     }
     Student(Student &obj){
         name=obj.name;
         cgpa=obj.cgpa;
-        skill=new string;
-        *skill=*obj.skill;
 
+    }
+    Student(){
+        cout<<"derived default"<<endl;
     }
     void display(){
         cout<<endl<<name<<endl;
         cout<<cgpa<<endl;
-        cout<<*skill<<endl;
 
     }
     
 };
 int main(){
-Student obj("prath",8.6,"py,css,html,c++");
-obj.display();
+Student obj;
+
 
 return 0;
 }
