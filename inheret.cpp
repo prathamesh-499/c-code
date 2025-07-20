@@ -4,12 +4,15 @@ using namespace std;
 class Person{
     public:
     string name;
-    Person(){
-        cout<<"base default"<<endl;
+    string gender;
+    Person(string name,string gender){
+        this->name=name;
+        this->gender=gender;
     }
     ~Person(){
         cout<<endl<<"boom!boom!"<<endl;
     }
+    Person(){}
 };
 class Student:public Person{
     public:
@@ -17,14 +20,11 @@ class Student:public Person{
 float cgpa;
 
 
-    Student(string name,float cgpa){
-    this->name=name;
+    Student(string name,float cgpa,string gender):Person(name,gender){
     this->cgpa=cgpa;
-
-
     }
     ~Student(){
-        cout<<"destructor bom";
+        cout<<"destructor boom";
     }
     Student(Student &obj){
         name=obj.name;
@@ -32,17 +32,25 @@ float cgpa;
 
     }
     Student(){
-        cout<<"derived default"<<endl;
+        cout<<"derived default std"<<endl;
     }
     void display(){
         cout<<endl<<name<<endl;
         cout<<cgpa<<endl;
+        cout<<gender<<endl;
 
     }
     
 };
+class Teacher:public Person{
+public:
+Teacher(){
+    cout<<"teacher class"<<endl;
+}
+};
 int main(){
-Student obj;
+Student obj("prat",4.6,"male");
+obj.display();
 
 
 return 0;
