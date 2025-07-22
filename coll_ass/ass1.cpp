@@ -4,19 +4,27 @@ using namespace std;
 
 class Bank_acc{
     string name;
-    int acc_no;
-    int ph_no;
+    string acc_no;
+    string ph_no;
     string acc_type;
     string ifsc;
     double bal;
+    string dob;
+    string addr;
 public:
-    Bank_acc(string n,int acc_n,int ph_n,string acc_t,string ifs,double b){
+    ~Bank_acc(){
+        cout<<"This is a destructor"<<endl;
+    }
+    Bank_acc(string n,string acc_n,string ph_n,string acc_t,string ifs,double b,string dob_1,string add){
         name=n;
         acc_no=acc_n;
         ph_no=ph_n;
         acc_type=acc_t;
         ifsc=ifs;
-        bal=b;}
+        bal=b;
+        dob=dob_1;
+        addr=add;
+    }
         
 	Bank_acc(Bank_acc &obj){
         name=obj.name;
@@ -25,6 +33,8 @@ public:
         acc_type=obj.acc_type;
         ifsc=obj.ifsc;
         bal=obj.bal;
+        dob=obj.dob;
+        addr=obj.addr;
 
 	}
     Bank_acc(){
@@ -36,15 +46,17 @@ public:
         cout<<"Customer phone number:"<<ph_no<<endl;
         cout<<"IFSC:"<<ifsc<<endl;
         cout<<"Account balance:"<<bal<<endl;
+        cout<<"DOB:"<<dob<<endl;
+        cout<<"Address:"<<addr<<endl;
     }
 
-    int show_bal(){
+    double show_bal(){
         return bal;
     }
     void create(){
         cout<<endl<<"Enter name"<<endl;
         cin>>name;
-        cout<<"Enter Account number"<<endl;
+        cout<<endl<<"Enter Account number"<<endl;
         cin>>acc_no;
         cout<<"Enter Phone number"<<endl;
         cin>>ph_no;
@@ -54,10 +66,14 @@ public:
         cin>>ifsc;
         cout<<"Enter balance"<<endl;
         cin>>bal;
+        cout << "Enter DOB (dd/mm/yyyy): ";
+        cin>>dob;
+        cout << "Enter address: ";
+        cin>>addr;
     }
 
     void withdraw(double w_amt){
-    	if (w_amt >bal && w_amt<0){
+    	if (w_amt >bal || w_amt<0){
     		cout<<"Invalid amount"<<endl;}
     		
 		else{
