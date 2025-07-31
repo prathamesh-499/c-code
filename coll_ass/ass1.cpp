@@ -1,134 +1,166 @@
-#include<iostream>
-#include<stdio.h>
+#include <iostream>
+#include <string>
 using namespace std;
 
-class Bank_acc{
-    string name;
-    string acc_no;
-    string ph_no;
-    string acc_type;
-    string ifsc;
-    double bal;
-    string dob;
-    string addr;
+class BankAccount {
 public:
-    ~Bank_acc(){
-        cout<<"This is a destructor"<<endl;
-    }
-    Bank_acc(string n,string acc_n,string ph_n,string acc_t,string ifs,double b,string dob_1,string add){
-        name=n;
-        acc_no=acc_n;
-        ph_no=ph_n;
-        acc_type=acc_t;
-        ifsc=ifs;
-        bal=b;
-        dob=dob_1;
-        addr=add;
-    }
-        
-	Bank_acc(Bank_acc &obj){
-        name=obj.name;
-        acc_no=obj.acc_no;
-        ph_no=obj.ph_no;
-        acc_type=obj.acc_type;
-        ifsc=obj.ifsc;
-        bal=obj.bal;
-        dob=obj.dob;
-        addr=obj.addr;
 
-	}
-    Bank_acc(){
-    }
-    void display(){
-        cout<<"Customer name:"<<name<<endl;
-        cout<<"Account number:"<<acc_no<<endl;
-        cout<<"Account type:"<<acc_type<<endl;
-        cout<<"Customer phone number:"<<ph_no<<endl;
-        cout<<"IFSC:"<<ifsc<<endl;
-        cout<<"Account balance:"<<bal<<endl;
-        cout<<"DOB:"<<dob<<endl;
-        cout<<"Address:"<<addr<<endl;
+    string name;
+    string dob;
+    string address;
+    int phone;
+    string accType;
+    string ifsc;
+    int accNumber;
+    double balance;
+
+    BankAccount() {
+        name = "prathamesh";
+        dob = "11/11/2000";
+        address ="pune";
+        phone = 1234567890;
+        accType ="saving";
+        ifsc = "3w554h5hy512";
+        accNumber = 2133241;
+        balance = 0;
     }
 
-    double show_bal(){
-        return bal;
+    BankAccount(string n, int accNo, string d, string addr, int ph, string type, string code, double bal) {
+        name = n;
+        accNumber = accNo;
+        dob = d;
+        address = addr;
+        phone = ph;
+        accType = type;
+        ifsc = code;
+        balance = bal;
     }
-    void create(){
-        cout<<endl<<"Enter name"<<endl;
-        cin>>name;
-        cout<<endl<<"Enter Account number"<<endl;
-        cin>>acc_no;
-        cout<<"Enter Phone number"<<endl;
-        cin>>ph_no;
-        cout<<"Enter account type"<<endl;
-        cin>>acc_type;
-        cout<<"Enter IFSC"<<endl;
-        cin>>ifsc;
-        cout<<"Enter balance"<<endl;
-        cin>>bal;
+
+    BankAccount(BankAccount &obj) {
+        name = obj.name;
+        accNumber = obj.accNumber;
+        dob = obj.dob;
+        address = obj.address;
+        phone = obj.phone;
+        accType = obj.accType;
+        ifsc = obj.ifsc;
+        balance = obj.balance;
+    }
+
+
+    void createAccount() {
+        cout << "Enter Name: ";
+        cin>> name;
+        cout << "Enter Account Number: ";
+        cin >> accNumber;
         cout << "Enter DOB (dd/mm/yyyy): ";
-        cin>>dob;
-        cout << "Enter address: ";
-        cin>>addr;
+        cin >> dob;
+        cout << "Enter Address: ";
+        cin>> address;
+        cout << "Enter Phone Number: ";
+        cin >> phone;
+        cout << "Enter Account Type (Saving/Current): ";
+        cin >> accType;
+        cout << "Enter IFSC Code: ";
+        cin >> ifsc;
+        cout << "Enter Balance: ";
+        cin >> balance;
     }
 
-    void withdraw(double w_amt){
-    	if (w_amt >bal || w_amt<0){
-    		cout<<"Invalid amount"<<endl;}
-    		
-		else{
-			bal=bal-w_amt;
-			cout<<endl<<w_amt<<" has been withdrawn form the account";}}
-	void deposit(double d_amt){
-    	if (d_amt<0){
-    		cout<<"Invalid amount"<<endl;}
-    		
-		else{
-			bal=bal+d_amt;
-			cout<<endl<<d_amt<<" has been deposit in the account";}}
+    void displayAccount() {
+        cout << "Account Details"<< endl;
+        cout << "Name: " << name << endl;
+        cout << "Account No: " << accNumber << endl;
+        cout << "DOB: " << dob << endl;
+        cout << "Address: " << address << endl;
+        cout << "Phone: " << phone << endl;
+        cout << "Account Type: " << accType << endl;
+        cout << "IFSC: " << ifsc << endl;
+        cout << "Balance: " << balance << endl;
+    }
+
+    void deposit(double amount) {
+        if (amount<0) {
+            cout << "Invalid amount"<<endl;}
+        else{
+        balance += amount;
+        cout << amount << "  amount deposited. New Balance = " << balance << endl;}
+    }
+
+void withdraw(double amount) {
+    if (amount <= 0) {
+        cout << "Invalid amount" << endl;
+    } else if (amount > balance) {
+        cout << "Insufficient balance" << endl;
+    } else {
+        balance -= amount;
+        cout << amount << " amount withdrawn. New Balance = " << balance << endl;
+    }
+}
+
+   
+    void showBalance() {
+        cout << "Current Balance: " << balance << endl;
+ 
+    }
+      ~BankAccount(){
+      	cout<<endl<<"Accounts are destroyed";
+	  }
 };
 
+int main() {
+    BankAccount acc1;
+   
+    int choice=0;
+    while(choice != 6) {
+        cout << "Bank Account Management System"<<endl;
+        cout << "1. Create New Account"<<endl;
+        cout << "2. Display Account Information"<<endl;
+        cout << "3. Deposit Amount"<<endl;
+        cout << "4. Withdraw Amount"<<endl;
+        cout << "5. View Current Balance"<<endl;
+        cout << "6. Exit"<<endl;
+        cout << "Enter your choice: "<<endl;
+        cin >> choice;
 
-int main(){
-    Bank_acc obj;
-    while(1){
-        cout<<"\nEnter a choice"<<endl<<"1 to create an account\n2 Display balance\n3 Display Account\n4 to Withdraw\n5 to Deposit\n6 Exit\n7 to make a copy of account"<<endl;
-        int choice;
-        cin>>choice;
-
-        switch(choice){
+        switch(choice) {
             case 1:
-            	obj.create();
+                acc1.createAccount();
                 break;
-
             case 2:
-                cout<<endl<<"Balance:"<<obj.show_bal()<<endl;
+                acc1.displayAccount();
                 break;
-
-            case 3:
-                obj.display();
+            case 3: {
+                double amt;
+                cout << "Enter amount to deposit: ";
+                cin >> amt;
+                acc1.deposit(amt);
                 break;
-        
-        	case 4:
-        		double w_amt;
-        		cout<<"Enter amount to withdraw"<<endl;
-        		cin>>w_amt;
-        		obj.withdraw(w_amt);
-				break;
-			case 5:
-				double d_amt;
-        		cout<<"Enter amount to deposit"<<endl;
-        		cin>>d_amt;
-        		obj.deposit(d_amt);
-				break;
-				}
+            }
+            case 4: {
+                double amt;
+                cout << "Enter amount to withdraw: ";
+                cin >> amt;
+                acc1.withdraw(amt);
+                break;
+            }
+            case 5:
+                acc1.showBalance();
+                break;
+            case 6:
 
-        if(choice==6){
-            break;}
-        if(choice==7){
-        	Bank_acc obj1(obj);
-			obj1.display();}
+                break;
+            default:
+                cout << "Invalid choice"<<endl;
+        }
+       
     }
 
+    BankAccount acc2 ("anuj", 12345, "28/11/2006", "Delhi", 32124, "Current", "IFSC0d3", 1000);
+    acc2.displayAccount();
+
+    BankAccount acc3(acc2);
+    acc3.displayAccount();
+    
     return 0;
-	}
+}
