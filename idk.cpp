@@ -3,7 +3,7 @@
 using namespace std;
 int main(){
     
-    cout<<"Enter a number to find out its prime\n";
+    cout<<"Enter a string\n";
     string num;
     getline(cin,num);
     cout<<num;

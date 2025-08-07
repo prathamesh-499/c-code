@@ -10,7 +10,7 @@ class Person{
         this->gender=gender;
     }
     ~Person(){
-        cout<<endl<<"boom!boom!"<<endl;
+        cout<<endl<<"base destructor"<<endl;
     }
     Person(){}
 };
@@ -24,7 +24,7 @@ float cgpa;
     this->cgpa=cgpa;
     }
     ~Student(){
-        cout<<"destructor boom";
+        cout<<"destructor";
     }
     Student(Student &obj){
         name=obj.name;
