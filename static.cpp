@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-void x(){
+void x_inc(){
 static int x=1;
 x++;
 }
@@ -22,14 +22,23 @@ static void func(){
  int Demo::a =8;
 
 int main (){
+
+     static Demo* o3;
+     
     if (1){
      static Demo o2;
+     o3=&o2;
+     o2.a=3;
+
     Demo o1;
     }
-// cout<<Demo::i;
-cout<<Demo::a;
+// Demo::a=Demo::a+1;
+    cout<<o3->a;
+     Demo o4;
+     cout<<o4.a;
 
-cout<<"i do not know what to write this is lorem\n";
+
+cout<<endl<<"i do not know what to write this is lorem\n";
 
 return 0;
 }
