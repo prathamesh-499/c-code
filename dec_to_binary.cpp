@@ -15,8 +15,9 @@ return ans;
 
 
 int main (){
-
-cout<<decToBin(10);
+int n;
+cin>>n;
+cout<<decToBin(n);
 
 return 0;
 }
