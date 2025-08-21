@@ -1,15 +1,11 @@
 {
     "files.associations": {
-        "string": "cpp",
-        "ostream": "cpp",
-        "iostream": "cpp",
-        "typeinfo": "cpp",
-        "cmath": "cpp",
         "array": "cpp",
         "atomic": "cpp",
         "bit": "cpp",
         "cctype": "cpp",
         "clocale": "cpp",
+        "cmath": "cpp",
         "compare": "cpp",
         "concepts": "cpp",
         "cstdarg": "cpp",
@@ -21,6 +17,8 @@
         "cwchar": "cpp",
         "cwctype": "cpp",
         "deque": "cpp",
+        "list": "cpp",
+        "string": "cpp",
         "unordered_map": "cpp",
         "vector": "cpp",
         "exception": "cpp",
@@ -39,12 +37,15 @@
         "initializer_list": "cpp",
         "iomanip": "cpp",
         "iosfwd": "cpp",
+        "iostream": "cpp",
         "istream": "cpp",
         "limits": "cpp",
         "new": "cpp",
         "numbers": "cpp",
+        "ostream": "cpp",
         "sstream": "cpp",
         "stdexcept": "cpp",
-        "streambuf": "cpp"
+        "streambuf": "cpp",
+        "typeinfo": "cpp"
     }
 }
