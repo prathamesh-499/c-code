@@ -25,7 +25,7 @@ class Binary_tree{
         return root;
     }
 // preorder traversal
-    void preorder_traversal(Node* root){
+    void preorder_traversal(Node* root){//O(n)
 
         if (root == NULL ){
             // cout<<-1<<",";
@@ -37,7 +37,7 @@ class Binary_tree{
 
     }
 //In Order traversal
-    void InOrder(Node* root){
+    void InOrder(Node* root){//O(n)
         if (root==NULL){
             // cout<<-1<<",";
              return;}
@@ -46,7 +46,7 @@ class Binary_tree{
         InOrder(root->right);
     }
     //Post Order travesal
-    void PostOrder(Node* root){
+    void PostOrder(Node* root){//O(n)
         if (root==NULL){
             // cout<<-1<<",";
         return;}
