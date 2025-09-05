@@ -137,8 +137,32 @@ int singleNonDuplicate(vector<int>& arr) {
     return -1;
 }
 
-
+void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int i=0,j=0;
+        vector<int> nums;
+        while(i<m &&j< n){
+            if (nums1[i]<nums2[j]){
+                nums.push_back(nums1[i]);
+                i++;
+            }
+            else{nums.push_back(nums2[j]);
+                j++;}
+        }
+        while(i<m){
+            nums.push_back(nums1[i]);
+            i++;
+        }
+        while(j<m){
+            nums.push_back(nums2[j]);
+            j++;
+        }
+        nums1=nums;
+    }
     int main (){
-
+vector<int>arr{1,2,3,0,0,0},arr1{2,5,6};
+merge(arr,3,arr1,3);
+for(auto a:arr){
+    cout<<a;
+}
 return 0;
 }

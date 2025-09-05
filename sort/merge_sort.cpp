@@ -24,7 +24,7 @@ while (j<=end){
         temp.push_back(arr[j]);
         j++;
 }
-for (int i;i<temp.size();i++){
+for (int i=0;i<temp.size();i++){
     arr[i+str]=temp[i];
 }
 }

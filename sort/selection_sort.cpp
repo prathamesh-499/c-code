@@ -12,11 +12,14 @@ for(int i =0;i<arr.size();i++){
     }
     swap(arr[i],arr[minIdx]);
 }
-
 }
 
+
+
+
+
 int main (){
-vector <int> arr{1,3,5,6,43,3};
+vector <int> arr{1,3,5,6,47,3};
 
 selection_sort(arr);
 for (int val:arr){
