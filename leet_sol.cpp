@@ -158,6 +158,33 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
         }
         nums1=nums;
     }
+    
+double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+    int i=0,j=0,mid;
+    double ans;
+    vector<int>arr;
+    while(i<nums1.size() && j<nums2.size()){
+        if(nums1[i]<nums2[j]){
+            arr.push_back(nums1[i++]);
+        }
+        else{arr.push_back(nums2[j++]);}
+    }
+    while(i<nums1.size()){
+            arr.push_back(nums1[i++]);
+    }
+    while(j<nums2.size()){
+            arr.push_back(nums2[j++]);
+    }
+
+    mid=(arr.size()-1)/2;
+    if (arr.size()%2==1){
+        return arr[mid];
+    }
+    else {
+        return (arr[mid+1]+arr[mid])/2.0;
+            }
+}
+
     int main (){
 vector<int>arr{1,2,3,0,0,0},arr1{2,5,6};
 merge(arr,3,arr1,3);

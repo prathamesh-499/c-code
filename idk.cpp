@@ -2,12 +2,13 @@
 #include <cmath>
 using namespace std;
 int main(){
-    
+    cout<<"enter num";
+    int num;
+    cin>>num;
     cout<<"Enter a string\n";
-    string num;
-    getline(cin,num);
-    cout<<num;
-cout<<endl<<num.at(5);
+    string name;
+    getline(cin,name);
+    cout<<"name=="<<name<<endl<<"num=="<<num;
 
 return 0;
 }
