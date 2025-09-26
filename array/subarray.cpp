@@ -1,5 +1,6 @@
 #include<iostream>
-#include <climits>
+#include <climits> 
+#include<algorithm>
 using namespace std;
 
 
@@ -34,7 +35,7 @@ int max_sub_arrary_sum_kadanes(int arr[],int n){//O(n)
     for (int i =0;i<n;i++){
         curr_sum+=arr[i];
         max_sum=max(curr_sum,max_sum);
-        if (curr_sum<0){
+        if (curr_sum<0){//is expresstion is written down in case if all negative values 
             curr_sum=0;
         }
     }
@@ -44,12 +45,13 @@ int max_sub_arrary_sum_kadanes(int arr[],int n){//O(n)
 int main(){
     int arr[5]={1,2,3,4,5};
 
-    int n=size(arr);
+    int n=sizeof(arr)/sizeof(arr[0]);
     
     print_subarray(arr,n);
     cout<<max_sub_arrary_sum_kadanes(arr,n);
 
-    
+        cout<<*max_element(arr,arr-n);
+
 
     return  0;
 }

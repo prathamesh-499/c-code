@@ -3,6 +3,7 @@
 #include<climits>
 #include <string>
 #include <algorithm>
+#include<deque>
 
 
 using namespace std;
@@ -185,11 +186,53 @@ double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
             }
 }
 
-    int main (){
-vector<int>arr{1,2,3,0,0,0},arr1{2,5,6};
-merge(arr,3,arr1,3);
-for(auto a:arr){
-    cout<<a;
+
+int trap(vector<int> arr){
+    int water=0,low_bar;
+    vector<int> leftMaxVect(arr.size(),INT_MIN);
+    vector<int> rightMaxVect(arr.size(),INT_MIN);
+
+    for (int i=1;i<arr.size();i++){
+        leftMaxVect[i]=max(arr[i-1],leftMaxVect[i-1]);
+    }
+
+    for(int i=arr.size()-2;i>=0;i--){
+        rightMaxVect[i]=max(arr[i+1],rightMaxVect[i+1]);
+    }
+
+    for(int i=1;i<arr.size()-1;i++){
+        low_bar=min(rightMaxVect[i],leftMaxVect[i]);
+        if(arr[i]<low_bar){
+        water+=(low_bar-arr[i]);}
+
+    }
+return water;
 }
+bool containsDuplicate(vector<int>& arr) {
+        deque<int>neg(100000,INT_MAX);
+        deque<int>pos(100000,INT_MAX);
+        for(int i=0;i<arr.size();i++){
+        if(arr[i]<0){
+            if(neg[arr[i]]==INT_MAX){
+            neg[arr[i]]=-arr[i];
+            }
+            return 1;
+        }
+        else{
+            if(INT_MAX==pos[arr[i]]){
+            pos[arr[i]]=arr[i];
+            }cout<<arr[i];
+            return 1;
+
+        }
+
+        }
+    return 0;
+    }
+
+    int main (){
+vector<int>arr{0,1,0,2,1,0,1,3,2,1,2,1};
+cout<<trap(arr);
+cout<<((arr[0])==NULL);
 return 0;
 }

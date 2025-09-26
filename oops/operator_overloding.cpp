@@ -11,7 +11,8 @@ class Person{
         name=n;
         age=a;
     }
-    bool operator==(const Person& p)const/*<-- This const is to tell that the this object will not be modified either the first const is for the perameter object*/{//for remove() function below 
+    bool operator==(const Person& p)const   /*<-- This const is to tell that the this object will not be modified either the first const is for the perameter object*/
+    {//for remove() function below 
         return name==p.name;//name == this->name
     }
 };
